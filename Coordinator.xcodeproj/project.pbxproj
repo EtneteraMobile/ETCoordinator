@@ -43,7 +43,7 @@
 		71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoppableCoordinator.swift; sourceTree = "<group>"; };
 		71A3724E22F85D8E000AD70F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		71A3725222F94E12000AD70F /* Coordinator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinator.plist; sourceTree = "<group>"; };
-		71AC473522952E01004D9B60 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71AC473522952E01004D9B60 /* ETCoordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETCoordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AC473822952E01004D9B60 /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +105,7 @@
 		71AC473622952E01004D9B60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				71AC473522952E01004D9B60 /* Coordinator.framework */,
+				71AC473522952E01004D9B60 /* ETCoordinator.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,7 +160,7 @@
 			);
 			name = Coordinator;
 			productName = Coordinator;
-			productReference = 71AC473522952E01004D9B60 /* Coordinator.framework */;
+			productReference = 71AC473522952E01004D9B60 /* ETCoordinator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -372,7 +372,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.Coordinator;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = ETCoordinator;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -397,7 +397,7 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.Coordinator;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = ETCoordinator;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
