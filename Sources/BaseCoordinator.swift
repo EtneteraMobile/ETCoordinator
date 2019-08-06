@@ -43,6 +43,29 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
         fatalError("Implement `makeStartingController()` in child.")
     }
 
+    /// There are some cases when coordinator isn't started by common way
+    /// like pushing (Pushable) or presenting (Presentable).
+    ///
+    /// For example when coordinator's controller is used as a root of the app.
+    /// Then he is started by custom way.
+    ///
+    /// By calling this method internal state is adjusted to be able to handle
+    /// navigation later on. The given controller is stored as a first controller
+    /// of this Coordinator and if he is `UINavigationController` than is saved
+    /// as a default navigationController too.
+    ///
+    /// - Warning: Don't use this method when your controller is Pushable or
+    /// Presentable.
+    open func startedManually(with vc: UIViewController) {
+        guard router.starter.firstController == nil, router.starter.navController == nil else {
+            fatalError("This coordinator was already started. Read documentation for method `startedManually(with:)`.")
+        }
+        router.starter.firstController = vc
+        if let nc = vc as? UINavigationController {
+            router.starter.navController = nc
+        }
+    }
+
     open func stop(animated: Bool, completion: (() -> Void)?) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         guard isStopped == false else {
