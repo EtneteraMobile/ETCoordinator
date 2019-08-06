@@ -39,11 +39,11 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
     // MARK: - Actions
     // MARK: public
 
-    public func makeStartingController() -> UIViewController {
+    open func makeStartingController() -> UIViewController {
         fatalError("Implement `makeStartingController()` in child.")
     }
 
-    public func stop(animated: Bool, completion: (() -> Void)?) {
+    open func stop(animated: Bool, completion: (() -> Void)?) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         guard isStopped == false else {
             assertionFailure("Unable to stop alredy stopped coordinator (\(self.identification))")
@@ -68,7 +68,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
         }
     }
 
-    public func stopChildren(animated: Bool, completion: @escaping () -> Void) {
+    open func stopChildren(animated: Bool, completion: @escaping () -> Void) {
         guard children.isEmpty == false else {
             completion()
             return
@@ -91,7 +91,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
         }
     }
 
-    public func addChild(_ coord: StoppableCoordinator & IdentifiableCoordinator) {
+    open func addChild(_ coord: StoppableCoordinator & IdentifiableCoordinator) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
 
         guard contains(array: children, element: coord) == false else {
@@ -117,7 +117,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
         Logger.log("Children remove from:\n\(self.description)")
     }
 
-    public func finished() {
+    open func finished() {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         Logger.log("Finished \(self.identification)")
 
@@ -132,7 +132,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
     }
 
     /// Registers didFinish block to coordinator. There can be multiple didFinish blocks.
-    public func addDidFinish(completion: @escaping () -> Void) {
+    open func addDidFinish(completion: @escaping () -> Void) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         Logger.log("addDidFinish \(self.identification)")
         didFinishCompletions.append(completion)
@@ -191,7 +191,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
 
 extension IdentifiableCoordinator {
     /// Identification of self. Returns `type(of: self)` with `identity`.
-    var identification: String {
+    public var identification: String {
         return "\(String(reflecting: type(of: self))), identity: \(identity)"
     }
 }

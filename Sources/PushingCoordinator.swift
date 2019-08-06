@@ -9,8 +9,7 @@ import Foundation
 import UIKit
 
 open class PushingCoordinator: BaseCoordinator<PushingRouter> {
-
-    func makeNavigationController() -> UINavigationController {
+    open func makeNavigationController() -> UINavigationController {
         return UINavigationController()
     }
 }

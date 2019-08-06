@@ -16,12 +16,12 @@ open class Router: NSObject, Initializable {
 
     public required override init() {}
 
-    public func vcForCoordinatorPresent() -> UIViewController {
+    open func vcForCoordinatorPresent() -> UIViewController {
         assert(starter.firstController != nil, "Router wasn't started yet. Start router and then you can call this.")
         return starter.firstController
     }
 
-    public func stop(animated: Bool, completion: (() -> Void)?) {
+    open func stop(animated: Bool, completion: (() -> Void)?) {
         // Dismisses all VC that was presented over `firstController`
         starter.firstController.presentingViewController?.dismiss(animated: animated, completion: completion)
     }

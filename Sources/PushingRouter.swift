@@ -9,12 +9,12 @@ import Foundation
 import UIKit
 
 open class PushingRouter: Router {
-    public func ncForCoordinatorPush() -> UINavigationController {
+    open func ncForCoordinatorPush() -> UINavigationController {
         assert(starter.navController != nil, "navController is nil. Start router and then you can call this.")
         return starter.navController!                                           // swiftlint:disable:this force_unwrapping
     }
 
-    public override func stop(animated: Bool, completion: (() -> Void)?) {
+    open override func stop(animated: Bool, completion: (() -> Void)?) {
         starter.didFinishWithGesture = nil
         if starter.firstController.presentingViewController != nil {
             // Dismisses all VC that was presented over `firstController`
@@ -29,12 +29,12 @@ open class PushingRouter: Router {
         }
     }
 
-    public func push(_ vc: UIViewController, animated: Bool) {
+    open func push(_ vc: UIViewController, animated: Bool) {
         assert(starter.navController != nil, "navController is nil. Start router and then you can call this.")
         starter.navController.pushViewController(vc, animated: animated)
     }
 
-    public func pop(animated: Bool) {
+    open func pop(animated: Bool) {
         assert(starter.navController != nil, "navController is nil. Start router and then you can call this.")
         starter.navController.popViewController(animated: animated)
     }
