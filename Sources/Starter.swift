@@ -29,7 +29,9 @@ open class Starter: NSObject {
     internal var didStopCompletion: (() -> Void)?
 
     deinit {
-        extractDelegate(from: navController)
+        if navController != nil {
+            extractDelegate(from: navController)
+        }
     }
 
     public func start(vc: UIViewController, presentFrom fromController: UIViewController, animated: Bool, completion: (() -> Void)?) {

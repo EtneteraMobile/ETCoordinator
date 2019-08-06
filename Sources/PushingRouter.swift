@@ -11,12 +11,12 @@ import UIKit
 open class PushingRouter: Router {
     public func ncForCoordinatorPush() -> UINavigationController {
         assert(starter.navController != nil, "navController is nil. Start router and then you can call this.")
-        return starter.navController!
+        return starter.navController!                                           // swiftlint:disable:this force_unwrapping
     }
 
     public override func stop(animated: Bool, completion: (() -> Void)?) {
         starter.didFinishWithGesture = nil
-        if starter.firstController.isBeingPresented {
+        if starter.firstController.presentingViewController != nil {
             // Dismisses all VC that was presented over `firstController`
             starter.firstController.presentingViewController?.dismiss(animated: animated, completion: completion)
         } else {

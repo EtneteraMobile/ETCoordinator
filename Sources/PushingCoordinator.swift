@@ -6,5 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
-open class PushingCoordinator: BaseCoordinator<PushingRouter> {}
+open class PushingCoordinator: BaseCoordinator<PushingRouter> {
+
+    func makeNavigationController() -> UINavigationController {
+        return UINavigationController()
+    }
+}

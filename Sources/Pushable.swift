@@ -8,21 +8,17 @@
 import Foundation
 import UIKit
 
-public protocol Pushable {}
+public protocol Pushable {
+    func start(pushTo: UINavigationController, animated: Bool, completion: (() -> Void)?)
+}
 
 public extension Pushable where Self: Coordinator {
-    func makeStartingController() -> UIViewController {
-        fatalError("Implement `makeStartingController` in your child.")
-    }
     func start(pushTo: UINavigationController, animated: Bool, completion: (() -> Void)?) {
         router.starter.start(vc: makeStartingController(), pushTo: pushTo, animated: animated, completion: completion)
     }
 }
 
 public extension Pushable where Self: PushingCoordinator {
-    func makeStartingController() -> UIViewController {
-        fatalError("Implement `makeStartingController` in your child.")
-    }
     func start(pushTo: UINavigationController, animated: Bool, completion: (() -> Void)?) {
         router.starter.start(vc: makeStartingController(), pushTo: pushTo, animated: animated, completion: completion)
     }

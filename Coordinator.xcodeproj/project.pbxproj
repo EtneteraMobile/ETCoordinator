@@ -13,29 +13,18 @@
 		7119D2CB22952F5600ECA92C /* Pushable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C022952F5500ECA92C /* Pushable.swift */; };
 		7119D2CC22952F5600ECA92C /* IdentifiableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C122952F5500ECA92C /* IdentifiableCoordinator.swift */; };
 		7119D2CD22952F5600ECA92C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C222952F5500ECA92C /* Coordinator.swift */; };
-		7119D2CE22952F5600ECA92C /* CoordinatorDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C322952F5500ECA92C /* CoordinatorDemo.swift */; };
 		7119D2CF22952F5600ECA92C /* Initializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C422952F5600ECA92C /* Initializable.swift */; };
 		7119D2D022952F5600ECA92C /* PushingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C522952F5600ECA92C /* PushingCoordinator.swift */; };
 		7119D2D122952F5600ECA92C /* PushingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C622952F5600ECA92C /* PushingRouter.swift */; };
 		7119D2D222952F5600ECA92C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2C722952F5600ECA92C /* Router.swift */; };
-		7119D2D322952F6B00ECA92C /* LinuxMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC475722952E36004D9B60 /* LinuxMain.swift */; };
-		7119D2D422952F6E00ECA92C /* CoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AC475622952E36004D9B60 /* CoordinatorTests.swift */; };
 		7119D2D8229531E100ECA92C /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2D6229531E000ECA92C /* MulticastDelegate.swift */; };
 		7119D2D9229531E100ECA92C /* NavControllerMulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2D7229531E000ECA92C /* NavControllerMulticastDelegate.swift */; };
 		7119D2DB229531EF00ECA92C /* Weak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2DA229531EF00ECA92C /* Weak.swift */; };
-		71AC473F22952E01004D9B60 /* Coordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AC473522952E01004D9B60 /* Coordinator.framework */; };
+		71A3724D22F85BD8000AD70F /* StoppableCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */; };
+		71A3724F22F85D8E000AD70F /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A3724E22F85D8E000AD70F /* Logger.swift */; };
+		71A3725422F94E12000AD70F /* Coordinator.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71A3725222F94E12000AD70F /* Coordinator.plist */; };
 		71AC474622952E01004D9B60 /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 71AC473822952E01004D9B60 /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		71AC474022952E01004D9B60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 71AC472C22952E01004D9B60 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 71AC473422952E01004D9B60;
-			remoteInfo = Coordinator;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		7119D2BD22952F5500ECA92C /* Starter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starter.swift; sourceTree = "<group>"; };
@@ -52,13 +41,11 @@
 		7119D2D6229531E000ECA92C /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
 		7119D2D7229531E000ECA92C /* NavControllerMulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavControllerMulticastDelegate.swift; sourceTree = "<group>"; };
 		7119D2DA229531EF00ECA92C /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
+		71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoppableCoordinator.swift; sourceTree = "<group>"; };
+		71A3724E22F85D8E000AD70F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		71A3725222F94E12000AD70F /* Coordinator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinator.plist; sourceTree = "<group>"; };
 		71AC473522952E01004D9B60 /* Coordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Coordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AC473822952E01004D9B60 /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
-		71AC473E22952E01004D9B60 /* CoordinatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71AC475022952E2F004D9B60 /* Coordinator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinator.plist; sourceTree = "<group>"; };
-		71AC475122952E2F004D9B60 /* CoordinatorTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CoordinatorTests.plist; sourceTree = "<group>"; };
-		71AC475622952E36004D9B60 /* CoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorTests.swift; sourceTree = "<group>"; };
-		71AC475722952E36004D9B60 /* LinuxMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,14 +53,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		71AC473B22952E01004D9B60 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				71AC473F22952E01004D9B60 /* Coordinator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,12 +69,28 @@
 			path = MulticastDelegate;
 			sourceTree = "<group>";
 		};
+		71A3725022F94D6D000AD70F /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				7119D2C322952F5500ECA92C /* CoordinatorDemo.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		71A3725122F94E12000AD70F /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				71A3725222F94E12000AD70F /* Coordinator.plist */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
 		71AC472B22952E01004D9B60 = {
 			isa = PBXGroup;
 			children = (
-				71AC474F22952E2F004D9B60 /* Configs */,
+				71A3725122F94E12000AD70F /* Configs */,
+				71A3725022F94D6D000AD70F /* Example */,
 				71AC473722952E01004D9B60 /* Sources */,
-				71AC475422952E36004D9B60 /* Tests */,
 				71AC473622952E01004D9B60 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				71AC473522952E01004D9B60 /* Coordinator.framework */,
-				71AC473E22952E01004D9B60 /* CoordinatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,45 +110,18 @@
 				7119D2D5229531E000ECA92C /* MulticastDelegate */,
 				7119D2BE22952F5500ECA92C /* BaseCoordinator.swift */,
 				7119D2C222952F5500ECA92C /* Coordinator.swift */,
-				7119D2C322952F5500ECA92C /* CoordinatorDemo.swift */,
 				7119D2C122952F5500ECA92C /* IdentifiableCoordinator.swift */,
 				7119D2C422952F5600ECA92C /* Initializable.swift */,
+				71A3724E22F85D8E000AD70F /* Logger.swift */,
 				7119D2BF22952F5500ECA92C /* Presentable.swift */,
 				7119D2C022952F5500ECA92C /* Pushable.swift */,
 				7119D2C522952F5600ECA92C /* PushingCoordinator.swift */,
 				7119D2C622952F5600ECA92C /* PushingRouter.swift */,
 				7119D2C722952F5600ECA92C /* Router.swift */,
 				7119D2BD22952F5500ECA92C /* Starter.swift */,
+				71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		71AC474F22952E2F004D9B60 /* Configs */ = {
-			isa = PBXGroup;
-			children = (
-				71AC475022952E2F004D9B60 /* Coordinator.plist */,
-				71AC475122952E2F004D9B60 /* CoordinatorTests.plist */,
-			);
-			name = Configs;
-			path = ../Configs;
-			sourceTree = "<group>";
-		};
-		71AC475422952E36004D9B60 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				71AC475522952E36004D9B60 /* CoordinatorTests */,
-				71AC475722952E36004D9B60 /* LinuxMain.swift */,
-			);
-			name = Tests;
-			path = ../Tests;
-			sourceTree = "<group>";
-		};
-		71AC475522952E36004D9B60 /* CoordinatorTests */ = {
-			isa = PBXGroup;
-			children = (
-				71AC475622952E36004D9B60 /* CoordinatorTests.swift */,
-			);
-			path = CoordinatorTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,24 +156,6 @@
 			productReference = 71AC473522952E01004D9B60 /* Coordinator.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		71AC473D22952E01004D9B60 /* CoordinatorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 71AC474C22952E01004D9B60 /* Build configuration list for PBXNativeTarget "CoordinatorTests" */;
-			buildPhases = (
-				71AC473A22952E01004D9B60 /* Sources */,
-				71AC473B22952E01004D9B60 /* Frameworks */,
-				71AC473C22952E01004D9B60 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				71AC474122952E01004D9B60 /* PBXTargetDependency */,
-			);
-			name = CoordinatorTests;
-			productName = CoordinatorTests;
-			productReference = 71AC473E22952E01004D9B60 /* CoordinatorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,9 +167,6 @@
 				ORGANIZATIONNAME = "Etnetera a. s.";
 				TargetAttributes = {
 					71AC473422952E01004D9B60 = {
-						CreatedOnToolsVersion = 10.2.1;
-					};
-					71AC473D22952E01004D9B60 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
@@ -238,7 +184,6 @@
 			projectRoot = "";
 			targets = (
 				71AC473422952E01004D9B60 /* Coordinator */,
-				71AC473D22952E01004D9B60 /* CoordinatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,13 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		71AC473C22952E01004D9B60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				71A3725422F94E12000AD70F /* Coordinator.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +206,11 @@
 			files = (
 				7119D2CD22952F5600ECA92C /* Coordinator.swift in Sources */,
 				7119D2CF22952F5600ECA92C /* Initializable.swift in Sources */,
+				71A3724D22F85BD8000AD70F /* StoppableCoordinator.swift in Sources */,
 				7119D2CB22952F5600ECA92C /* Pushable.swift in Sources */,
 				7119D2CC22952F5600ECA92C /* IdentifiableCoordinator.swift in Sources */,
 				7119D2C822952F5600ECA92C /* Starter.swift in Sources */,
-				7119D2CE22952F5600ECA92C /* CoordinatorDemo.swift in Sources */,
+				71A3724F22F85D8E000AD70F /* Logger.swift in Sources */,
 				7119D2CA22952F5600ECA92C /* Presentable.swift in Sources */,
 				7119D2D122952F5600ECA92C /* PushingRouter.swift in Sources */,
 				7119D2D022952F5600ECA92C /* PushingCoordinator.swift in Sources */,
@@ -282,24 +222,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		71AC473A22952E01004D9B60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7119D2D422952F6E00ECA92C /* CoordinatorTests.swift in Sources */,
-				7119D2D322952F6B00ECA92C /* LinuxMain.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		71AC474122952E01004D9B60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 71AC473422952E01004D9B60 /* Coordinator */;
-			targetProxy = 71AC474022952E01004D9B60 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		71AC474722952E01004D9B60 /* Debug */ = {
@@ -472,42 +395,6 @@
 			};
 			name = Release;
 		};
-		71AC474D22952E01004D9B60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Configs/CoordinatorTests.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.CoordinatorTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		71AC474E22952E01004D9B60 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Configs/CoordinatorTests.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.CoordinatorTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -525,15 +412,6 @@
 			buildConfigurations = (
 				71AC474A22952E01004D9B60 /* Debug */,
 				71AC474B22952E01004D9B60 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		71AC474C22952E01004D9B60 /* Build configuration list for PBXNativeTarget "CoordinatorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				71AC474D22952E01004D9B60 /* Debug */,
-				71AC474E22952E01004D9B60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

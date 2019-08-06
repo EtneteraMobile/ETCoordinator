@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
+open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, IdentifiableCoordinator {
     // MARK: - Properties
     // MARK: public
 
     public let identity: String = UUID().uuidString
     public var isFinished: Bool = false
-    public var children: [BaseCoordinator] = []
+    public var children: [StoppableCoordinator & IdentifiableCoordinator] = []
     public let router = RouterType()
 
     // MARK: private
@@ -26,7 +26,7 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
     /// but someone has in didFinish [supercoordinator stop])
     private var isStopped: Bool = false
 
-    private var didFinishCompletions: [(BaseCoordinator) -> Void] = []
+    private var didFinishCompletions: [() -> Void] = []
 
     // MARK: - Initialization
 
@@ -39,17 +39,22 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
     // MARK: - Actions
     // MARK: public
 
+    public func makeStartingController() -> UIViewController {
+        fatalError("Implement `makeStartingController()` in child.")
+    }
+
     public func stop(animated: Bool, completion: (() -> Void)?) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
         guard isStopped == false else {
             assertionFailure("Unable to stop alredy stopped coordinator (\(self.identification))")
-            Logger.warning("Unable to stop alredy stopped coordinator (\(self.identification))")
+            Logger.info("Unable to stop alredy stopped coordinator (\(self.identification))")
             return
         }
-        Logger.verbose("stop \(self.identification)")
+        Logger.log("stop \(self.identification)")
         isStopped = true
+        router.starter.didFinishWithGesture = nil
         if router.isStarted {
-            Logger.verbose("router is started, \(self.identification)")
+            Logger.log("router is started, \(self.identification)")
             router.stop(animated: animated) {
                 // Retains strongly otherwise is self nil and `finished` is never called
                 self.finished()
@@ -57,7 +62,7 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
                 completion?()
             }
         } else {
-            Logger.verbose("router is NOT started, \(self.identification)")
+            Logger.log("router is NOT started, \(self.identification)")
             finished()
             completion?()
         }
@@ -68,7 +73,7 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
             completion()
             return
         }
-        Logger.verbose("stopChildren of:\n\(self.description)")
+        Logger.log("stopChildren of:\n\(self.description)")
         let group = DispatchGroup()
         children
             .reversed()
@@ -78,44 +83,47 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
                     group.leave()
                 }
             }
-        Dispatcher().background.async.run {
+        DispatchQueue.global().async {
             _ = group.wait(timeout: .now() + 0.3)
-            Dispatcher().main.sync.run {
+            DispatchQueue.main.sync {
                 completion()
             }
         }
     }
 
-    public func addChild(_ coord: BaseCoordinator) {
+    public func addChild(_ coord: StoppableCoordinator & IdentifiableCoordinator) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
 
-        guard children.contains(coord) == false else {
+        guard contains(array: children, element: coord) == false else {
             assertionFailure("Unable to addChild that is alredy added. New child: (\(coord.identification))")
-            Logger.warning("Unable to addChild that is alredy added. New child: (\(coord.identification))")
+            Logger.info("Unable to addChild that is alredy added. New child: (\(coord.identification))")
             return
         }
 
-        Logger.verbose("addChild \(coord.identification)")
+        Logger.log("addChild \(coord.identification)")
         children.append(coord)
 
-        coord.addDidFinish { [weak self] finishedCoord in
-            if let sSelf = self {
-                Logger.verbose("removeChild \(finishedCoord.identification)")
-                sSelf.children.remove(coord: finishedCoord)
-                Logger.verbose("Children remove from:\n\(sSelf.description)")
-            }
+        coord.addDidFinish { [weak self, unowned finishedCoord = coord] in
+            self?.removeChild(finishedCoord)
         }
 
-        Logger.verbose("Children added to:\n\(self.description)")
+        Logger.log("Children added to:\n\(self.description)")
+    }
+
+    private func removeChild(_ coord: StoppableCoordinator & IdentifiableCoordinator) {
+        let childIdentification = coord.identification
+        Logger.log("removeChild \(childIdentification)")
+        remove(element: coord, from: &children)
+        Logger.log("Children remove from:\n\(self.description)")
     }
 
     public func finished() {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
-        Logger.verbose("Finished \(self.identification)")
+        Logger.log("Finished \(self.identification)")
 
         guard isFinished == false else {
             assertionFailure("Unable to finish alredy finished coordinator (\(self.identification))")
-            Logger.warning("Unable to finish alredy finished coordinator (\(self.identification))")
+            Logger.info("Unable to finish alredy finished coordinator (\(self.identification))")
             return
         }
 
@@ -124,9 +132,9 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
     }
 
     /// Registers didFinish block to coordinator. There can be multiple didFinish blocks.
-    public func addDidFinish(completion: @escaping (BaseCoordinator) -> Void) {
+    public func addDidFinish(completion: @escaping () -> Void) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
-        Logger.verbose("addDidFinish \(self.identification)")
+        Logger.log("addDidFinish \(self.identification)")
         didFinishCompletions.append(completion)
     }
 
@@ -137,30 +145,28 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
             notifyFinishListeners()
             return
         }
-
-        Logger.verbose("stopChildren of \(self.identification)")
+        Logger.log("stopChildren of \(self.identification)")
 
         let group = DispatchGroup()
         children.forEach { coord in
-            coord.router.starter.didFinishWithGesture = nil
             group.enter()
-            coord.addDidFinish { _ in
-                group.leave()
-            }
             if router.isStarted {
                 // Calls only finished, because `self.stop` hides all VCs controlled by subcoordinators
                 // but only if self `isStarted`
                 coord.finished()
+                group.leave()
             } else {
                 // If self isn't started stops all subcoordinator
-                coord.stop(animated: true, completion: nil)
+                coord.stop(animated: true) {
+                    group.leave()
+                }
             }
         }
 
         // Waits for all coordinators to did finish
         group.notify(queue: .main) { [weak self] in
             if let sSelf = self {
-                Logger.verbose("children stopped \(sSelf.identification)")
+                Logger.log("children stopped \(sSelf.identification)")
                 sSelf.notifyFinishListeners()
             }
         }
@@ -174,21 +180,23 @@ open class BaseCoordinator<RouterType: Router>: IdentifiableCoordinator {
         // Removes didFinish block to prevent future repeated calls
         didFinishCompletions = []
 
-        Logger.verbose("notifyFinishListeners of \(self.identification)")
+        Logger.log("notifyFinishListeners of \(self.identification)")
         completions.forEach { didFinish in
-            didFinish(self)
+            didFinish()
         }
     }
 }
 
 // MARK: - Helpers
 
-extension BaseCoordinator: CustomStringConvertible {
+extension IdentifiableCoordinator {
     /// Identification of self. Returns `type(of: self)` with `identity`.
     var identification: String {
-        return "\(type(of: self)), identity: \(identity)"
+        return "\(String(reflecting: type(of: self))), identity: \(identity)"
     }
+}
 
+extension BaseCoordinator: CustomStringConvertible {
     public var description: String {
         return """
         == \(self.identification) ==
@@ -201,15 +209,15 @@ extension BaseCoordinator: CustomStringConvertible {
     }
 }
 
-private extension Array where Element: IdentifiableCoordinator {
-    func contains(_ coord: IdentifiableCoordinator) -> Bool {
-        return contains(where: { $0.identity == coord.identity })
-    }
+// MARK: - Helpers
 
-    mutating func remove(coord: IdentifiableCoordinator) {
-        if let idx = firstIndex(where: { $0.identity == coord.identity }) {
-            remove(at: idx)
-        }
-        assert(contains(coord) == false, "Contains coordinator after removal.")
+private func contains(array: [StoppableCoordinator & IdentifiableCoordinator], element coord: IdentifiableCoordinator) -> Bool {
+    return array.contains(where: { $0.identity == coord.identity })
+}
+
+private func remove(element coord: IdentifiableCoordinator, from: inout [StoppableCoordinator & IdentifiableCoordinator]) {
+    if let idx = from.firstIndex(where: { $0.identity == coord.identity }) {
+        from.remove(at: idx)
     }
+    assert(contains(array: from, element: coord) == false, "Contains coordinator after removal.")
 }
