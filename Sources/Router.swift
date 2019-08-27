@@ -12,7 +12,7 @@ open class Router: NSObject, Initializable {
     public var isStarted: Bool {
         return starter.isStarted
     }
-    internal var starter = Starter()
+    public var starter = Starter()
 
     public required override init() {}
 
