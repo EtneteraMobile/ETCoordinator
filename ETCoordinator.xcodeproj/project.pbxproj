@@ -42,7 +42,7 @@
 		7119D2DA229531EF00ECA92C /* Weak.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weak.swift; sourceTree = "<group>"; };
 		71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoppableCoordinator.swift; sourceTree = "<group>"; };
 		71A3724E22F85D8E000AD70F /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		71A3725222F94E12000AD70F /* Coordinator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Coordinator.plist; sourceTree = "<group>"; };
+		71A3725222F94E12000AD70F /* ETCoordinator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ETCoordinator.plist; sourceTree = "<group>"; };
 		71AC473522952E01004D9B60 /* ETCoordinator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ETCoordinator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71AC473822952E01004D9B60 /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,7 +58,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6586281823795DEB007ECD0D /* Coordinator */ = {
+		6586281823795DEB007ECD0D /* ETCoordinator */ = {
 			isa = PBXGroup;
 			children = (
 				71AC473822952E01004D9B60 /* Coordinator.h */,
@@ -76,7 +76,7 @@
 				7119D2BD22952F5500ECA92C /* Starter.swift */,
 				71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = ETCoordinator;
 			sourceTree = "<group>";
 		};
 		7119D2D5229531E000ECA92C /* MulticastDelegate */ = {
@@ -100,7 +100,7 @@
 		71A3725122F94E12000AD70F /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				71A3725222F94E12000AD70F /* Coordinator.plist */,
+				71A3725222F94E12000AD70F /* ETCoordinator.plist */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -134,7 +134,7 @@
 		71AC473722952E01004D9B60 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				6586281823795DEB007ECD0D /* Coordinator */,
+				6586281823795DEB007ECD0D /* ETCoordinator */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -153,9 +153,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		71AC473422952E01004D9B60 /* Coordinator */ = {
+		71AC473422952E01004D9B60 /* ETCoordinator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71AC474922952E01004D9B60 /* Build configuration list for PBXNativeTarget "Coordinator" */;
+			buildConfigurationList = 71AC474922952E01004D9B60 /* Build configuration list for PBXNativeTarget "ETCoordinator" */;
 			buildPhases = (
 				71AC473022952E01004D9B60 /* Headers */,
 				71AC473122952E01004D9B60 /* Sources */,
@@ -166,7 +166,7 @@
 			);
 			dependencies = (
 			);
-			name = Coordinator;
+			name = ETCoordinator;
 			productName = Coordinator;
 			productReference = 71AC473522952E01004D9B60 /* ETCoordinator.framework */;
 			productType = "com.apple.product-type.framework";
@@ -186,7 +186,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 71AC472F22952E01004D9B60 /* Build configuration list for PBXProject "Coordinator" */;
+			buildConfigurationList = 71AC472F22952E01004D9B60 /* Build configuration list for PBXProject "ETCoordinator" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -199,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				71AC473422952E01004D9B60 /* Coordinator */,
+				71AC473422952E01004D9B60 /* ETCoordinator */,
 			);
 		};
 /* End PBXProject section */
@@ -371,7 +371,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Configs/Coordinator.plist;
+				INFOPLIST_FILE = Configs/ETCoordinator.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -396,7 +396,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Configs/Coordinator.plist;
+				INFOPLIST_FILE = Configs/ETCoordinator.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -415,7 +415,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		71AC472F22952E01004D9B60 /* Build configuration list for PBXProject "Coordinator" */ = {
+		71AC472F22952E01004D9B60 /* Build configuration list for PBXProject "ETCoordinator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71AC474722952E01004D9B60 /* Debug */,
@@ -424,7 +424,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		71AC474922952E01004D9B60 /* Build configuration list for PBXNativeTarget "Coordinator" */ = {
+		71AC474922952E01004D9B60 /* Build configuration list for PBXNativeTarget "ETCoordinator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				71AC474A22952E01004D9B60 /* Debug */,

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 open class Starter: NSObject {
+
     public var isStarted: Bool {
         return firstController != nil
     }
@@ -66,6 +67,16 @@ open class Starter: NSObject {
 
 // MARK: - Navigation Controller Delegate + Injection
 
+extension Starter: UIAdaptivePresentationControllerDelegate {
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        guard isStarted else {
+            return
+        }
+
+        didStopWithGestureVC()
+    }
+}
+
 extension Starter: UINavigationControllerDelegate {
     @objc public func navigationController(_ nc: UINavigationController, didShow vc: UIViewController, animated: Bool) {
         guard isStarted else {
@@ -76,7 +87,7 @@ extension Starter: UINavigationControllerDelegate {
             self.didStartCompletion = nil
         }
         if let topVC = topViewControllerOnStart, topVC === vc {
-            didPopToStartingVC()
+            didStopWithGestureVC()
         }
     }
 
@@ -86,6 +97,7 @@ extension Starter: UINavigationControllerDelegate {
             nc.delegate = multicastDelegate
         } else {
             nc.delegate = self
+            nc.presentationController?.delegate = self
         }
     }
 
@@ -97,7 +109,7 @@ extension Starter: UINavigationControllerDelegate {
         }
     }
 
-    private func didPopToStartingVC() {
+    private func didStopWithGestureVC() {
         didStopCompletion?()
         didFinishWithGesture?()
 

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Coordinator.xcodeproj">
+      location = "self:/Users/petrurban/projects/etnetera/interni/ETCoordinator/ETCoordinator.xcodeproj">
    </FileRef>
 </Workspace>
