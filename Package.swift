@@ -24,5 +24,6 @@ let package = Package(
         .testTarget(
             name: "CoordinatorTests",
             dependencies: ["Coordinator"]),
-    ]
+    ],
+    platforms: [.iOS(.v10)]
 )
