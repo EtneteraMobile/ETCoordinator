@@ -6,4 +6,17 @@
 //  Copyright © 2020 Etnetera a. s. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import ETCoordinator
+
+class DetailCoordinator: PushingCoordinator, Presentable, Pushable {
+    override func makeStartingController() -> UIViewController {
+        let vc = DetailViewController()
+
+        vc.onCloseAction = { [unowned self] in
+            self.stop(animated: true, completion: nil)
+        }
+
+        return vc
+    }
+}

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */; };
+		52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8F2400238400A24F8A /* DetailViewController.swift */; };
+		52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE7778240015C100CC5FDF /* AppDelegate.swift */; };
+		52CE777B240015C100CC5FDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE777A240015C100CC5FDF /* SceneDelegate.swift */; };
+		52CE777F240015C200CC5FDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE777E240015C200CC5FDF /* Assets.xcassets */; };
+		52CE7782240015C200CC5FDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE7781240015C200CC5FDF /* Preview Assets.xcassets */; };
+		52CE7785240015C200CC5FDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE7783240015C200CC5FDF /* LaunchScreen.storyboard */; };
+		52CE778B240015C800CC5FDF /* ETCoordinator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71AC473522952E01004D9B60 /* ETCoordinator.framework */; };
+		52CE778C240015C800CC5FDF /* ETCoordinator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 71AC473522952E01004D9B60 /* ETCoordinator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		52CE77932400163100CC5FDF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE77922400163100CC5FDF /* HomeViewController.swift */; };
+		52CE77962400165F00CC5FDF /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE77952400165F00CC5FDF /* HomeCoordinator.swift */; };
 		7119D2C822952F5600ECA92C /* Starter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2BD22952F5500ECA92C /* Starter.swift */; };
 		7119D2C922952F5600ECA92C /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2BE22952F5500ECA92C /* BaseCoordinator.swift */; };
 		7119D2CA22952F5600ECA92C /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7119D2BF22952F5500ECA92C /* Presentable.swift */; };
@@ -25,7 +36,42 @@
 		71AC474622952E01004D9B60 /* Coordinator.h in Headers */ = {isa = PBXBuildFile; fileRef = 71AC473822952E01004D9B60 /* Coordinator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		52CE778D240015C800CC5FDF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71AC472C22952E01004D9B60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71AC473422952E01004D9B60;
+			remoteInfo = ETCoordinator;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52CE778F240015C900CC5FDF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				52CE778C240015C800CC5FDF /* ETCoordinator.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		52AD1F8F2400238400A24F8A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		52CE7776240015C100CC5FDF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52CE7778240015C100CC5FDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52CE777A240015C100CC5FDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		52CE777E240015C200CC5FDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52CE7781240015C200CC5FDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		52CE7784240015C200CC5FDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52CE7786240015C200CC5FDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52CE77922400163100CC5FDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		52CE77952400165F00CC5FDF /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		7119D2BD22952F5500ECA92C /* Starter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starter.swift; sourceTree = "<group>"; };
 		7119D2BE22952F5500ECA92C /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		7119D2BF22952F5500ECA92C /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -48,6 +94,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		52CE7773240015C100CC5FDF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE778B240015C800CC5FDF /* ETCoordinator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71AC473222952E01004D9B60 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -58,6 +112,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52CE7777240015C100CC5FDF /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				52CE77942400165000CC5FDF /* Coordinators */,
+				52CE77902400160D00CC5FDF /* ViewControllers */,
+				52CE7778240015C100CC5FDF /* AppDelegate.swift */,
+				52CE777A240015C100CC5FDF /* SceneDelegate.swift */,
+				52CE777E240015C200CC5FDF /* Assets.xcassets */,
+				52CE7783240015C200CC5FDF /* LaunchScreen.storyboard */,
+				52CE7786240015C200CC5FDF /* Info.plist */,
+				52CE7780240015C200CC5FDF /* Preview Content */,
+			);
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		52CE7780240015C200CC5FDF /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				52CE7781240015C200CC5FDF /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		52CE778A240015C800CC5FDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		52CE77902400160D00CC5FDF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				52CE77922400163100CC5FDF /* HomeViewController.swift */,
+				52AD1F8F2400238400A24F8A /* DetailViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		52CE77942400165000CC5FDF /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				52CE77952400165F00CC5FDF /* HomeCoordinator.swift */,
+				52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		6586281823795DEB007ECD0D /* ETCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +221,9 @@
 				71A3725122F94E12000AD70F /* Configs */,
 				71A3725022F94D6D000AD70F /* Example */,
 				71AC473722952E01004D9B60 /* Sources */,
+				52CE7777240015C100CC5FDF /* ExampleApp */,
 				71AC473622952E01004D9B60 /* Products */,
+				52CE778A240015C800CC5FDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				71AC473522952E01004D9B60 /* ETCoordinator.framework */,
+				52CE7776240015C100CC5FDF /* ExampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +258,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		52CE7775240015C100CC5FDF /* ExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52CE7789240015C200CC5FDF /* Build configuration list for PBXNativeTarget "ExampleApp" */;
+			buildPhases = (
+				52CE7772240015C100CC5FDF /* Sources */,
+				52CE7773240015C100CC5FDF /* Frameworks */,
+				52CE7774240015C100CC5FDF /* Resources */,
+				52CE778F240015C900CC5FDF /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52CE778E240015C800CC5FDF /* PBXTargetDependency */,
+			);
+			name = ExampleApp;
+			productName = Example;
+			productReference = 52CE7776240015C100CC5FDF /* ExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
 		71AC473422952E01004D9B60 /* ETCoordinator */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71AC474922952E01004D9B60 /* Build configuration list for PBXNativeTarget "ETCoordinator" */;
@@ -177,10 +301,13 @@
 		71AC472C22952E01004D9B60 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Etnetera a. s.";
 				TargetAttributes = {
+					52CE7775240015C100CC5FDF = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
 					71AC473422952E01004D9B60 = {
 						CreatedOnToolsVersion = 10.2.1;
 					};
@@ -200,11 +327,22 @@
 			projectRoot = "";
 			targets = (
 				71AC473422952E01004D9B60 /* ETCoordinator */,
+				52CE7775240015C100CC5FDF /* ExampleApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		52CE7774240015C100CC5FDF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE7785240015C200CC5FDF /* LaunchScreen.storyboard in Resources */,
+				52CE7782240015C200CC5FDF /* Preview Assets.xcassets in Resources */,
+				52CE777F240015C200CC5FDF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71AC473322952E01004D9B60 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +353,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52CE7772240015C100CC5FDF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */,
+				52CE77962400165F00CC5FDF /* HomeCoordinator.swift in Sources */,
+				52CE777B240015C100CC5FDF /* SceneDelegate.swift in Sources */,
+				52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */,
+				52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */,
+				52CE77932400163100CC5FDF /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71AC473122952E01004D9B60 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -239,7 +390,66 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		52CE778E240015C800CC5FDF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71AC473422952E01004D9B60 /* ETCoordinator */;
+			targetProxy = 52CE778D240015C800CC5FDF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52CE7783240015C200CC5FDF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CE7784240015C200CC5FDF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		52CE7787240015C200CC5FDF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UVXJ4S52GK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.ETCoordinator.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52CE7788240015C200CC5FDF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UVXJ4S52GK;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cz.etnetera.ETCoordinator.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		71AC474722952E01004D9B60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -415,6 +625,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		52CE7789240015C200CC5FDF /* Build configuration list for PBXNativeTarget "ExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CE7787240015C200CC5FDF /* Debug */,
+				52CE7788240015C200CC5FDF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		71AC472F22952E01004D9B60 /* Build configuration list for PBXProject "ETCoordinator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
