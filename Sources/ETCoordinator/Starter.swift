@@ -29,6 +29,8 @@ open class Starter: NSObject {
     internal var didStartCompletion: (vc: UIViewController, action: () -> Void)?
     internal var didStopCompletion: (() -> Void)?
 
+    internal var isDismissing = false
+
     deinit {
         if navController != nil {
             extractDelegate(from: navController)
@@ -40,6 +42,8 @@ open class Starter: NSObject {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
 
         firstController = vc
+        let pController = fromController.presentationController
+        fromController.presentationController?.delegate = self
         fromController.present(vc, animated: animated, completion: completion)
     }
 
@@ -49,6 +53,8 @@ open class Starter: NSObject {
 
         firstController = nc
         navController = nc
+        let pController = fromController.presentationController
+        fromController.presentationController?.delegate = self
         fromController.present(nc, animated: animated, completion: completion)
     }
 
@@ -68,26 +74,33 @@ open class Starter: NSObject {
 // MARK: - Navigation Controller Delegate + Injection
 
 extension Starter: UIAdaptivePresentationControllerDelegate {
+    public func presentationControllerWillDismiss(_ presentationController: UIPresentationController) {
+        isDismissing = true
+    }
+
+    public func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        isDismissing = false
+    }
+
+
     public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         guard isStarted else {
             return
         }
 
         didStopWithGestureVC()
+        isDismissing = false
     }
 }
 
 extension Starter: UINavigationControllerDelegate {
     @objc public func navigationController(_ nc: UINavigationController, didShow vc: UIViewController, animated: Bool) {
-        guard isStarted else {
+        guard isStarted && !isDismissing else {
             return
         }
         if let didStartCompletion = didStartCompletion, didStartCompletion.vc === vc {
             didStartCompletion.action()
             self.didStartCompletion = nil
-        }
-        if let topVC = topViewControllerOnStart, topVC === vc {
-            didStopWithGestureVC()
         }
     }
 
