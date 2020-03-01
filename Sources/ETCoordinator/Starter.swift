@@ -42,7 +42,6 @@ open class Starter: NSObject {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
 
         firstController = vc
-        let pController = fromController.presentationController
         fromController.presentationController?.delegate = self
         fromController.present(vc, animated: animated, completion: completion)
     }
@@ -53,7 +52,6 @@ open class Starter: NSObject {
 
         firstController = nc
         navController = nc
-        let pController = fromController.presentationController
         fromController.presentationController?.delegate = self
         fromController.present(nc, animated: animated, completion: completion)
     }
