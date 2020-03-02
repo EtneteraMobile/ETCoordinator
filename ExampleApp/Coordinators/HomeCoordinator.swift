@@ -23,12 +23,11 @@ class HomeCoord: PushingCoordinator {
         rootNC = UINavigationController(rootViewController: vc)
 
         vc.onPushAction = { [unowned self] in
-            // NOT IMPLEMENTED
-            // self.openAccount()
+            self.pushDetail()
         }
 
         vc.onPresentAction = { [unowned self] in
-            self.openDetail()
+            self.presentDetail()
         }
 
         return rootNC
@@ -38,12 +37,25 @@ class HomeCoord: PushingCoordinator {
     func start() {
     }
 
-    func openDetail() {
+    func presentDetail() {
         let coord = DetailCoordinator()
 
         self.addChild(coord)
         if let nc = rootNC {
-            coord.start(presentFrom: nc, animated: true, completion: nil)
+            coord.start(presentFrom: nc, animated: true) {
+                print("present completion")
+            }
+        }
+    }
+
+    func pushDetail() {
+        let coord = DetailCoordinator()
+
+        self.addChild(coord)
+        if let nc = rootNC {
+            coord.start(pushTo: nc, animated: true) {
+                print("push completion")
+            }
         }
     }
 }

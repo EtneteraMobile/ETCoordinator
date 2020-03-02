@@ -10,7 +10,6 @@
 		52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */; };
 		52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8F2400238400A24F8A /* DetailViewController.swift */; };
 		52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE7778240015C100CC5FDF /* AppDelegate.swift */; };
-		52CE777B240015C100CC5FDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE777A240015C100CC5FDF /* SceneDelegate.swift */; };
 		52CE777F240015C200CC5FDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE777E240015C200CC5FDF /* Assets.xcassets */; };
 		52CE7782240015C200CC5FDF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE7781240015C200CC5FDF /* Preview Assets.xcassets */; };
 		52CE7785240015C200CC5FDF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE7783240015C200CC5FDF /* LaunchScreen.storyboard */; };
@@ -65,20 +64,19 @@
 		52AD1F8F2400238400A24F8A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		52CE7776240015C100CC5FDF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52CE7778240015C100CC5FDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52CE777A240015C100CC5FDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		52CE777E240015C200CC5FDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52CE7781240015C200CC5FDF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		52CE7784240015C200CC5FDF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52CE7786240015C200CC5FDF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52CE77922400163100CC5FDF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		52CE77952400165F00CC5FDF /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		65ACD665240D3A2E006D4B0C /* CoordinatorDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorDemo.swift; sourceTree = "<group>"; };
 		7119D2BD22952F5500ECA92C /* Starter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Starter.swift; sourceTree = "<group>"; };
 		7119D2BE22952F5500ECA92C /* BaseCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		7119D2BF22952F5500ECA92C /* Presentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		7119D2C022952F5500ECA92C /* Pushable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pushable.swift; sourceTree = "<group>"; };
 		7119D2C122952F5500ECA92C /* IdentifiableCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IdentifiableCoordinator.swift; sourceTree = "<group>"; };
 		7119D2C222952F5500ECA92C /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		7119D2C322952F5500ECA92C /* CoordinatorDemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorDemo.swift; sourceTree = "<group>"; };
 		7119D2C422952F5600ECA92C /* Initializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initializable.swift; sourceTree = "<group>"; };
 		7119D2C522952F5600ECA92C /* PushingCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushingCoordinator.swift; sourceTree = "<group>"; };
 		7119D2C622952F5600ECA92C /* PushingRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushingRouter.swift; sourceTree = "<group>"; };
@@ -115,10 +113,10 @@
 		52CE7777240015C100CC5FDF /* ExampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				65ACD665240D3A2E006D4B0C /* CoordinatorDemo.swift */,
 				52CE77942400165000CC5FDF /* Coordinators */,
 				52CE77902400160D00CC5FDF /* ViewControllers */,
 				52CE7778240015C100CC5FDF /* AppDelegate.swift */,
-				52CE777A240015C100CC5FDF /* SceneDelegate.swift */,
 				52CE777E240015C200CC5FDF /* Assets.xcassets */,
 				52CE7783240015C200CC5FDF /* LaunchScreen.storyboard */,
 				52CE7786240015C200CC5FDF /* Info.plist */,
@@ -191,14 +189,6 @@
 			path = MulticastDelegate;
 			sourceTree = "<group>";
 		};
-		71A3725022F94D6D000AD70F /* Example */ = {
-			isa = PBXGroup;
-			children = (
-				7119D2C322952F5500ECA92C /* CoordinatorDemo.swift */,
-			);
-			path = Example;
-			sourceTree = "<group>";
-		};
 		71A3725122F94E12000AD70F /* Configs */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				71A3725122F94E12000AD70F /* Configs */,
-				71A3725022F94D6D000AD70F /* Example */,
 				71AC473722952E01004D9B60 /* Sources */,
 				52CE7777240015C100CC5FDF /* ExampleApp */,
 				71AC473622952E01004D9B60 /* Products */,
@@ -359,7 +348,6 @@
 			files = (
 				52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */,
 				52CE77962400165F00CC5FDF /* HomeCoordinator.swift in Sources */,
-				52CE777B240015C100CC5FDF /* SceneDelegate.swift in Sources */,
 				52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */,
 				52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */,
 				52CE77932400163100CC5FDF /* HomeViewController.swift in Sources */,
@@ -418,7 +406,7 @@
 				DEVELOPMENT_TEAM = UVXJ4S52GK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ExampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,7 +426,7 @@
 				DEVELOPMENT_TEAM = UVXJ4S52GK;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ExampleApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +490,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -560,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -583,7 +571,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configs/ETCoordinator.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,7 +596,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Configs/ETCoordinator.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
