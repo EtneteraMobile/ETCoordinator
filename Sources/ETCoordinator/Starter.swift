@@ -100,6 +100,7 @@ extension Starter: UINavigationControllerDelegate {
             didStartCompletion.action()
             self.didStartCompletion = nil
         }
+        // This is called when stoping (poping) pushed coordinator.
         if let topVC = topViewControllerOnStart, topVC === vc {
             didStopWithGestureVC()
         }
