@@ -100,6 +100,9 @@ extension Starter: UINavigationControllerDelegate {
             didStartCompletion.action()
             self.didStartCompletion = nil
         }
+        if let topVC = topViewControllerOnStart, topVC === vc {
+            didStopWithGestureVC()
+        }
     }
 
     private func injectDelegate(to nc: UINavigationController) {
