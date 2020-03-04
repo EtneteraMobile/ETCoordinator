@@ -20,7 +20,6 @@ open class Starter: NSObject {
     internal var navController: UINavigationController! {
         didSet {
             injectDelegate(to: navController)
-            topViewControllerOnStart = navController.topViewController
         }
     }
     /// The view controller that is topViewController at initialization time.
@@ -62,6 +61,10 @@ open class Starter: NSObject {
 
         firstController = vc
         navController = fromController
+        // We need to check topViewControllerOnStart only in case of setting up a new coordinator.
+        // This coordinator should be started via Starter object.
+        // If we push new VC into navigation stack it should be done via Router object and not with this method.
+        topViewControllerOnStart = navController.topViewController
         didStartCompletion = (vc: vc, action: {
             completion?()
         })

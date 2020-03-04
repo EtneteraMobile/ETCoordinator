@@ -17,6 +17,24 @@ class DetailCoordinator: PushingCoordinator, Presentable, Pushable {
             self.stop(animated: true, completion: nil)
         }
 
+        vc.onPushAction = { [unowned self] in
+            let vc = DetailViewController()
+
+            vc.onCloseAction = { [weak self] in
+                self?.router.pop(animated: true)
+            }
+
+            self.router.push(vc, animated: true)
+        }
+
+        vc.onPushNewCoordAction = { [unowned self] in
+            let coord = DetailCoordinator()
+
+            self.addChild(coord)
+
+            coord.start(pushTo: self.router.ncForCoordinatorPush(), animated: true, completion: nil)
+        }
+
         return vc
     }
 }
