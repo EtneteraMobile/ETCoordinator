@@ -7,8 +7,9 @@
 
 import Foundation
 import UIKit
+import ETCoordinator
 
-class HomeCoord: Coordinator {
+class HomeCoordDemo: Coordinator {
 
     private let window = UIWindow()
     private let rootNC = UINavigationController(rootViewController: .init())
