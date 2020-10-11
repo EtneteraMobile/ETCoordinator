@@ -8,9 +8,19 @@
 
 import ETCoordinator
 import Foundation
+import LifetimeTracker
 import UIKit
 
-class HomeCoord: PushingCoordinator {
+class HomeCoordinator: PushingCoordinator, LifetimeTrackable {
+    class var lifetimeConfiguration: LifetimeConfiguration {
+        return LifetimeConfiguration(maxCount: 1, groupName: "HomeCoord")
+    }
+
+    override init() {
+        super.init()
+
+        trackLifetime()
+    }
 
     deinit {
         print("HOMECOORD: Deinit")

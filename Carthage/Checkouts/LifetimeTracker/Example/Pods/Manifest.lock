@@ -1,0 +1,16 @@
+PODS:
+  - LifetimeTracker (1.7.1)
+
+DEPENDENCIES:
+  - LifetimeTracker (from `../`)
+
+EXTERNAL SOURCES:
+  LifetimeTracker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LifetimeTracker: 1ef5970530677332f292bc26b476fe4faf9d33b9
+
+PODFILE CHECKSUM: e91e3be8fb02f5c6156c564a223f1b57ddffa7f5
+
+COCOAPODS: 1.8.4

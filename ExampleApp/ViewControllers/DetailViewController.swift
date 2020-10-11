@@ -6,9 +6,13 @@
 //  Copyright © 2020 Etnetera a. s. All rights reserved.
 //
 
+import LifetimeTracker
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, LifetimeTrackable {
+    class var lifetimeConfiguration: LifetimeConfiguration {
+        return LifetimeConfiguration(maxCount: 1, groupName: "DetailViewController")
+    }
 
     var onCloseAction: (() -> Void)?
     var onPushAction: (() -> Void)?
@@ -17,6 +21,16 @@ class DetailViewController: UIViewController {
     private let closeButton = UIButton()
     private let pushButton = UIButton()
     private let pushCoordButton = UIButton()
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+
+        trackLifetime()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

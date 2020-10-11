@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52737A512533997800E7CCA2 /* LifetimeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52737A502533996F00E7CCA2 /* LifetimeTracker.framework */; };
 		52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */; };
 		52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8F2400238400A24F8A /* DetailViewController.swift */; };
 		52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE7778240015C100CC5FDF /* AppDelegate.swift */; };
@@ -60,6 +61,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		52737A502533996F00E7CCA2 /* LifetimeTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LifetimeTracker.framework; path = Carthage/Build/iOS/LifetimeTracker.framework; sourceTree = "<group>"; };
 		52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		52AD1F8F2400238400A24F8A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		52CE7776240015C100CC5FDF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52737A512533997800E7CCA2 /* LifetimeTracker.framework in Frameworks */,
 				52CE778B240015C800CC5FDF /* ETCoordinator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +139,7 @@
 		52CE778A240015C800CC5FDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				52737A502533996F00E7CCA2 /* LifetimeTracker.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,6 +260,7 @@
 				52CE7774240015C100CC5FDF /* Resources */,
 				52CE778F240015C900CC5FDF /* Embed Frameworks */,
 				52737A4F25337A5000E7CCA2 /* Swiftlint */,
+				52737A532533998100E7CCA2 /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -361,6 +366,26 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		52737A532533998100E7CCA2 /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/LifetimeTracker.framework",
+			);
+			name = Carthage;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/LifetimeTracker.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -427,6 +452,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UVXJ4S52GK;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,6 +476,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UVXJ4S52GK;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ExampleApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

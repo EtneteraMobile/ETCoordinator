@@ -6,13 +6,14 @@
 //  Copyright © 2020 Etnetera a. s. All rights reserved.
 //
 
+import LifetimeTracker
 import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var homeCoord = HomeCoord()
+    var homeCoord = HomeCoordinator()
 
     func application(
         _ application: UIApplication,
@@ -25,8 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.makeKeyAndVisible()
 
+        setupLifetimeTracker()
+
         homeCoord.start()
 
         return true
+    }
+
+    private func setupLifetimeTracker() {
+        LifetimeTracker.setup(onUpdate: LifetimeTrackerDashboardIntegration(visibility: .alwaysVisible, style: .circular).refreshUI)
     }
 }

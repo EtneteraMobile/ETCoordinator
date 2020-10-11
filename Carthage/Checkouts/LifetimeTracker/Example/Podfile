@@ -1,0 +1,13 @@
+platform :ios, '8.0'
+
+use_frameworks!
+
+target 'Example' do
+
+  pod 'LifetimeTracker', :path => '../'
+
+  target 'Example_Tests' do
+    inherit! :search_paths
+  end
+
+end

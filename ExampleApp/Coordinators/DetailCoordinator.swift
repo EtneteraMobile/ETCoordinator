@@ -7,9 +7,14 @@
 //
 
 import ETCoordinator
+import LifetimeTracker
 import UIKit
 
-class DetailCoordinator: PushingCoordinator, Presentable, Pushable {
+class DetailCoordinator: PushingCoordinator, Presentable, Pushable, LifetimeTrackable {
+    class var lifetimeConfiguration: LifetimeConfiguration {
+        return LifetimeConfiguration(maxCount: 1, groupName: "DetailCoordinator")
+    }
+
     override func makeStartingController() -> UIViewController {
         let vc = DetailViewController()
 

@@ -6,15 +6,29 @@
 //  Copyright © 2020 Etnetera a. s. All rights reserved.
 //
 
+import LifetimeTracker
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, LifetimeTrackable {
+    class var lifetimeConfiguration: LifetimeConfiguration {
+        return LifetimeConfiguration(maxCount: 1, groupName: "HomeViewController")
+    }
 
     var onPushAction: (() -> Void)?
     var onPresentAction: (() -> Void)?
 
     private let buttonA = UIButton()
     private let buttonB = UIButton()
+
+    init() {
+        super.init(nibName: nil, bundle: nil)
+
+        trackLifetime()
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
