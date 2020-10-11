@@ -212,9 +212,9 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
 
 // MARK: - Helpers
 
-extension IdentifiableCoordinator {
+public extension IdentifiableCoordinator {
     /// Identification of self. Returns `type(of: self)` with `identity`.
-    public var identification: String {
+    var identification: String {
         return "\(String(reflecting: type(of: self))), identity: \(identity)"
     }
 }
@@ -235,7 +235,7 @@ extension BaseCoordinator: CustomStringConvertible {
 // MARK: - Helpers
 
 private func contains(array: [StoppableCoordinator & IdentifiableCoordinator], element coord: IdentifiableCoordinator) -> Bool {
-    return array.contains(where: { $0.identity == coord.identity })
+    return array.contains { $0.identity == coord.identity }
 }
 
 private func remove(element coord: IdentifiableCoordinator, from: inout [StoppableCoordinator & IdentifiableCoordinator]) {

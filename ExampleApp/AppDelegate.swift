@@ -14,7 +14,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var homeCoord = HomeCoord()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
         let window = UIWindow(frame: UIScreen.main.bounds)
 
         window.rootViewController = homeCoord.makeStartingController()
@@ -27,4 +30,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 }
-

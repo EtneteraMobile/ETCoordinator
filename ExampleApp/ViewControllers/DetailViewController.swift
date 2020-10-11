@@ -63,17 +63,20 @@ class DetailViewController: UIViewController {
         ])
     }
 
-    @objc func close() {
+    @objc
+    func close() {
         print("DETAILVC: Closing")
         onCloseAction?()
     }
 
-    @objc func push() {
+    @objc
+    func push() {
         print("DETAILVC: Pushing")
         onPushAction?()
     }
 
-    @objc func pushCoord() {
+    @objc
+    func pushCoord() {
         print("DETAILVC: Pushing new")
         onPushNewCoordAction?()
     }

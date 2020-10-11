@@ -15,11 +15,13 @@ open class Starter: NSObject {
     }
     public var didFinishWithGesture: (() -> Void)?
 
-    internal var firstController: UIViewController!
+    internal var firstController: UIViewController?
 
-    internal var navController: UINavigationController! {
+    internal var navController: UINavigationController? {
         didSet {
-            injectDelegate(to: navController)
+            if let nc = navController {
+                injectDelegate(to: nc)
+            }
         }
     }
     /// The view controller that is topViewController at initialization time.
@@ -31,8 +33,8 @@ open class Starter: NSObject {
     internal var isDismissing = false
 
     deinit {
-        if navController != nil {
-            extractDelegate(from: navController)
+        if let nc = navController {
+            extractDelegate(from: nc)
         }
     }
 
@@ -64,7 +66,7 @@ open class Starter: NSObject {
         // We need to check topViewControllerOnStart only in case of setting up a new coordinator.
         // This coordinator should be started via Starter object.
         // If we push new VC into navigation stack it should be done via Router object and not with this method.
-        topViewControllerOnStart = navController.topViewController
+        topViewControllerOnStart = navController?.topViewController
         didStartCompletion = (vc: vc, action: {
             completion?()
         })
@@ -83,7 +85,6 @@ extension Starter: UIAdaptivePresentationControllerDelegate {
         isDismissing = false
     }
 
-
     public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         guard isStarted else {
             return
@@ -95,7 +96,8 @@ extension Starter: UIAdaptivePresentationControllerDelegate {
 }
 
 extension Starter: UINavigationControllerDelegate {
-    @objc public func navigationController(_ nc: UINavigationController, didShow vc: UIViewController, animated: Bool) {
+    @objc
+    public func navigationController(_ nc: UINavigationController, didShow vc: UIViewController, animated: Bool) {
         guard isStarted && !isDismissing else {
             return
         }

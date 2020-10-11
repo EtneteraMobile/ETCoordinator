@@ -6,9 +6,9 @@
 //  Copyright © 2020 Etnetera a. s. All rights reserved.
 //
 
+import ETCoordinator
 import Foundation
 import UIKit
-import ETCoordinator
 
 class HomeCoord: PushingCoordinator {
 
@@ -16,11 +16,12 @@ class HomeCoord: PushingCoordinator {
         print("HOMECOORD: Deinit")
     }
 
-    private var rootNC: UINavigationController!
+    private var rootNC: UINavigationController?
 
     public override func makeStartingController() -> UIViewController {
         let vc = HomeViewController()
-        rootNC = UINavigationController(rootViewController: vc)
+        let nc = UINavigationController(rootViewController: vc)
+        rootNC = nc
 
         vc.onPushAction = { [unowned self] in
             self.pushDetail()
@@ -30,7 +31,7 @@ class HomeCoord: PushingCoordinator {
             self.presentDetail()
         }
 
-        return rootNC
+        return nc
     }
 
     // Custom app specific `start`.

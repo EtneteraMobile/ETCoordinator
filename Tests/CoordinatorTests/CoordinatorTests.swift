@@ -6,9 +6,9 @@
 //  Copyright © 2019 Etnetera a.s.. All rights reserved.
 //
 
+import Coordinator
 import Foundation
 import XCTest
-import Coordinator
 
 class CoordinatorTests: XCTestCase {
     func testExample() {
@@ -16,8 +16,8 @@ class CoordinatorTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         //// XCTAssertEqual(Coordinator().text, "Hello, World!")
     }
-    
+
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testExample)
     ]
 }

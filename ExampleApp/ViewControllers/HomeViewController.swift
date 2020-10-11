@@ -48,14 +48,15 @@ class HomeViewController: UIViewController {
         ])
     }
 
-    @objc func push() {
+    @objc
+    func push() {
         print("HOMEVC: Pushing")
         onPushAction?()
     }
 
-    @objc func presentSomething() {
+    @objc
+    func presentSomething() {
         print("HOMEVC: Presenting")
         onPresentAction?()
     }
 }
-
