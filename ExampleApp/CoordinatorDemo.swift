@@ -5,9 +5,9 @@
 //  Copyright © 2019 Etnetera a. s. All rights reserved.
 //
 
+import ETCoordinator
 import Foundation
 import UIKit
-import ETCoordinator
 
 class HomeCoordDemo: Coordinator {
 

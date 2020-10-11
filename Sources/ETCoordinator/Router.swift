@@ -18,11 +18,11 @@ open class Router: NSObject, Initializable {
 
     open func vcForCoordinatorPresent() -> UIViewController {
         assert(starter.firstController != nil, "Router wasn't started yet. Start router and then you can call this.")
-        return starter.firstController
+        return starter.firstController! // swiftlint:disable:this force_unwrapping
     }
 
     open func stop(animated: Bool, completion: (() -> Void)?) {
         // Dismisses all VC that was presented over `firstController`
-        starter.firstController.presentingViewController?.dismiss(animated: animated, completion: completion)
+        starter.firstController?.presentingViewController?.dismiss(animated: animated, completion: completion)
     }
 }

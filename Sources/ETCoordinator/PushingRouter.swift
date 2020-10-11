@@ -16,13 +16,13 @@ open class PushingRouter: Router {
 
     open override func stop(animated: Bool, completion: (() -> Void)?) {
         starter.didFinishWithGesture = nil
-        if starter.firstController.presentingViewController != nil {
+        if starter.firstController?.presentingViewController != nil {
             // Dismisses all VC that was presented over `firstController`
-            starter.firstController.presentingViewController?.dismiss(animated: animated, completion: completion)
+            starter.firstController?.presentingViewController?.dismiss(animated: animated, completion: completion)
         } else {
             starter.didStopCompletion = completion
-            if let vc = starter.topViewControllerOnStart {
-                starter.navController.popToViewController(vc, animated: animated)
+            if let viewController = starter.topViewControllerOnStart {
+                starter.navController?.popToViewController(viewController, animated: animated)
             } else {
                 assertionFailure("Router wasn't started or navControlled didn't contain topViewController on start.")
             }
@@ -31,11 +31,11 @@ open class PushingRouter: Router {
 
     open func push(_ vc: UIViewController, animated: Bool) {
         assert(starter.navController != nil, "navController is nil. Start router and then you can call this.")
-        starter.navController.pushViewController(vc, animated: animated)
+        starter.navController?.pushViewController(vc, animated: animated)
     }
 
     open func pop(animated: Bool) {
         assert(starter.navController != nil, "navController is nil. Start router and then you can call this.")
-        starter.navController.popViewController(animated: animated)
+        starter.navController?.popViewController(animated: animated)
     }
 }

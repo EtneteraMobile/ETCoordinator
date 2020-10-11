@@ -20,8 +20,8 @@ public extension Presentable where Self: Coordinator {
 
 public extension Presentable where Self: PushingCoordinator {
     func start(presentFrom: UIViewController, animated: Bool, completion: (() -> Void)?) {
-        let nc = makeNavigationController()
-        nc.viewControllers = [makeStartingController()]
-        router.starter.start(nc: nc, presentFrom: presentFrom, animated: animated, completion: completion)
+        let navigationController = makeNavigationController()
+        navigationController.viewControllers = [makeStartingController()]
+        router.starter.start(nc: navigationController, presentFrom: presentFrom, animated: animated, completion: completion)
     }
 }

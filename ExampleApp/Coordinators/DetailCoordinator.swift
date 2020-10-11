@@ -6,8 +6,8 @@
 //  Copyright © 2020 Etnetera a. s. All rights reserved.
 //
 
-import UIKit
 import ETCoordinator
+import UIKit
 
 class DetailCoordinator: PushingCoordinator, Presentable, Pushable {
     override func makeStartingController() -> UIViewController {

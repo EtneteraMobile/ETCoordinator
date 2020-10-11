@@ -36,9 +36,11 @@ open class NavControllerMulticastDelegate: MulticastDelegate<UINavigationControl
 
     // MARK: - Delegate implementation
 
-    open func navigationController(_ navigationController: UINavigationController,
-                                   willShow viewController: UIViewController,
-                                   animated: Bool) {
+    open func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+    ) {
         for delegate in delegates {
             delegate.value?.navigationController?(navigationController,
                                                   willShow: viewController,
@@ -46,9 +48,11 @@ open class NavControllerMulticastDelegate: MulticastDelegate<UINavigationControl
         }
     }
 
-    open func navigationController(_ navigationController: UINavigationController,
-                                   didShow viewController: UIViewController,
-                                   animated: Bool) {
+    open func navigationController(
+        _ navigationController: UINavigationController,
+        didShow viewController: UIViewController,
+        animated: Bool
+    ) {
         for delegate in delegates {
             delegate.value?.navigationController?(navigationController,
                                                   didShow: viewController,
@@ -56,33 +60,37 @@ open class NavControllerMulticastDelegate: MulticastDelegate<UINavigationControl
         }
     }
 
-    open func navigationControllerSupportedInterfaceOrientations(_ navigationController: UINavigationController)
-        -> UIInterfaceOrientationMask {
+    open func navigationControllerSupportedInterfaceOrientations(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientationMask {
         return perform(defaultValue: .all) {
             $0.navigationControllerSupportedInterfaceOrientations?(navigationController)
         }
     }
 
-    open func navigationControllerPreferredInterfaceOrientationForPresentation(_ navigationController: UINavigationController)
-        -> UIInterfaceOrientation {
+    open func navigationControllerPreferredInterfaceOrientationForPresentation(
+        _ navigationController: UINavigationController
+    ) -> UIInterfaceOrientation {
         return perform(defaultValue: .portrait) {
             $0.navigationControllerPreferredInterfaceOrientationForPresentation?(navigationController)
         }
     }
 
-    open func navigationController(_ navigationController: UINavigationController,
-                                   interactionControllerFor animationController: UIViewControllerAnimatedTransitioning)
-        -> UIViewControllerInteractiveTransitioning? {
+    open func navigationController(
+        _ navigationController: UINavigationController,
+        interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
+    ) -> UIViewControllerInteractiveTransitioning? {
         return perform(defaultValue: nil) {
             $0.navigationController?(navigationController, interactionControllerFor: animationController)
         }
     }
 
-    open func navigationController(_ navigationController: UINavigationController,
-                                   animationControllerFor operation: UINavigationController.Operation,
-                                   from fromVC: UIViewController,
-                                   to toVC: UIViewController)
-        -> UIViewControllerAnimatedTransitioning? {
+    open func navigationController(
+        _ navigationController: UINavigationController,
+        animationControllerFor operation: UINavigationController.Operation,
+        from fromVC: UIViewController,
+        to toVC: UIViewController
+    ) -> UIViewControllerAnimatedTransitioning? {
         return perform(defaultValue: nil) {
             $0.navigationController?(navigationController, animationControllerFor: operation, from: fromVC, to: toVC)
         }
