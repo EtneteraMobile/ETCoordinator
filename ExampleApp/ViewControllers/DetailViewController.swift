@@ -22,6 +22,10 @@ class DetailViewController: UIViewController, LifetimeTrackable {
     private let pushButton = UIButton()
     private let pushCoordButton = UIButton()
 
+    private var detailName: String {
+        return Utils.randomString(length: 8)
+    }
+
     init() {
         super.init(nibName: nil, bundle: nil)
 
@@ -35,7 +39,9 @@ class DetailViewController: UIViewController, LifetimeTrackable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
+
+        title = "Detail " + detailName
 
         view.addSubview(closeButton)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +53,7 @@ class DetailViewController: UIViewController, LifetimeTrackable {
         pushButton.translatesAutoresizingMaskIntoConstraints = false
         pushButton.setTitle("Push", for: .normal)
         pushButton.setTitleColor(.darkText, for: .normal)
-        pushButton.addTarget(self, action: #selector(push), for: .touchUpInside)
+        pushButton.addTarget(self, action: #selector(pushDetail), for: .touchUpInside)
 
         view.addSubview(pushCoordButton)
         pushCoordButton.translatesAutoresizingMaskIntoConstraints = false
@@ -84,7 +90,7 @@ class DetailViewController: UIViewController, LifetimeTrackable {
     }
 
     @objc
-    func push() {
+    func pushDetail() {
         print("DETAILVC: Pushing")
         onPushAction?()
     }

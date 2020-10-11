@@ -13,7 +13,7 @@ import UIKit
 
 class HomeCoordinator: PushingCoordinator, LifetimeTrackable {
     class var lifetimeConfiguration: LifetimeConfiguration {
-        return LifetimeConfiguration(maxCount: 1, groupName: "HomeCoord")
+        return LifetimeConfiguration(maxCount: 1, groupName: "HomeCoordinator")
     }
 
     override init() {
@@ -41,6 +41,10 @@ class HomeCoordinator: PushingCoordinator, LifetimeTrackable {
             self.presentDetail()
         }
 
+        vc.onPresentCoordAction = { [unowned self] in
+            self.presentCustomCoord()
+        }
+
         return nc
     }
 
@@ -53,9 +57,9 @@ class HomeCoordinator: PushingCoordinator, LifetimeTrackable {
 
         self.addChild(coord)
         if let nc = rootNC {
-            coord.start(presentFrom: nc, animated: true) {
-                print("present completion")
-            }
+//            coord.start(presentFrom: nc, animated: true) {
+//                print("present completion")
+//            }
         }
     }
 
@@ -64,8 +68,20 @@ class HomeCoordinator: PushingCoordinator, LifetimeTrackable {
 
         self.addChild(coord)
         if let nc = rootNC {
-            coord.start(pushTo: nc, animated: true) {
-                print("push completion")
+//            coord.start(pushTo: nc, animated: true) {
+//                print("push completion")
+//            }
+        }
+    }
+
+    func presentCustomCoord() {
+        let coord = CustomCoordinator()
+
+        self.addChild(coord)
+
+        if let nc = rootNC {
+            coord.start(presentFrom: nc, animated: true) {
+                print("present custom completion")
             }
         }
     }

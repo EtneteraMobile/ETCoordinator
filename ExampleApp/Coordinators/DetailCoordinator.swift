@@ -10,9 +10,15 @@ import ETCoordinator
 import LifetimeTracker
 import UIKit
 
-class DetailCoordinator: PushingCoordinator, Presentable, Pushable, LifetimeTrackable {
+class  DetailCoordinator: PushingCoordinator, LifetimeTrackable {
     class var lifetimeConfiguration: LifetimeConfiguration {
         return LifetimeConfiguration(maxCount: 1, groupName: "DetailCoordinator")
+    }
+
+    override init() {
+        super.init()
+
+        trackLifetime()
     }
 
     override func makeStartingController() -> UIViewController {
@@ -37,7 +43,7 @@ class DetailCoordinator: PushingCoordinator, Presentable, Pushable, LifetimeTrac
 
             self.addChild(coord)
 
-            coord.start(pushTo: self.router.ncForCoordinatorPush(), animated: true, completion: nil)
+//            coord.start(pushTo: self.router.ncForCoordinatorPush(), animated: true, completion: nil)
         }
 
         return vc

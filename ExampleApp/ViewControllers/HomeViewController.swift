@@ -16,9 +16,11 @@ class HomeViewController: UIViewController, LifetimeTrackable {
 
     var onPushAction: (() -> Void)?
     var onPresentAction: (() -> Void)?
+    var onPresentCoordAction: (() -> Void)?
 
-    private let buttonA = UIButton()
-    private let buttonB = UIButton()
+    private let pushDetailButton = UIButton()
+    private let presentDetailButton = UIButton()
+    private let presentCustomCoordButton = UIButton()
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -35,42 +37,63 @@ class HomeViewController: UIViewController, LifetimeTrackable {
 
         view.backgroundColor = .white
 
-        view.addSubview(buttonA)
-        buttonA.translatesAutoresizingMaskIntoConstraints = false
-        buttonA.setTitle("Push something", for: .normal)
-        buttonA.setTitleColor(.darkText, for: .normal)
-        buttonA.addTarget(self, action: #selector(push), for: .touchUpInside)
+        title = "Home"
 
-        view.addSubview(buttonB)
-        buttonB.translatesAutoresizingMaskIntoConstraints = false
-        buttonB.setTitle("Present something", for: .normal)
-        buttonB.setTitleColor(.darkText, for: .normal)
-        buttonB.addTarget(self, action: #selector(presentSomething), for: .touchUpInside)
+        view.addSubview(pushDetailButton)
+        pushDetailButton.translatesAutoresizingMaskIntoConstraints = false
+        pushDetailButton.setTitle("Push Detail", for: .normal)
+        pushDetailButton.setTitleColor(.darkText, for: .normal)
+        pushDetailButton.addTarget(self, action: #selector(pushDetail), for: .touchUpInside)
+
+        view.addSubview(presentDetailButton)
+        presentDetailButton.translatesAutoresizingMaskIntoConstraints = false
+        presentDetailButton.setTitle("Present Detail", for: .normal)
+        presentDetailButton.setTitleColor(.darkText, for: .normal)
+        presentDetailButton.addTarget(self, action: #selector(presentDetail), for: .touchUpInside)
+
+        view.addSubview(presentCustomCoordButton)
+        presentCustomCoordButton.translatesAutoresizingMaskIntoConstraints = false
+        presentCustomCoordButton.setTitle("Present Custom Coord", for: .normal)
+        presentCustomCoordButton.setTitleColor(.darkText, for: .normal)
+        presentCustomCoordButton.addTarget(self, action: #selector(presentCustomCoord), for: .touchUpInside)
 
         NSLayoutConstraint.activate([
-            buttonA.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
-            buttonA.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
-            buttonA.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            buttonA.heightAnchor.constraint(equalToConstant: 64)
+            pushDetailButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            pushDetailButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            pushDetailButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            pushDetailButton.heightAnchor.constraint(equalToConstant: 64)
         ])
 
         NSLayoutConstraint.activate([
-            buttonB.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
-            buttonB.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
-            buttonB.topAnchor.constraint(equalTo: buttonA.bottomAnchor, constant: 10),
-            buttonB.heightAnchor.constraint(equalToConstant: 64)
+            presentDetailButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            presentDetailButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            presentDetailButton.topAnchor.constraint(equalTo: pushDetailButton.bottomAnchor, constant: 10),
+            presentDetailButton.heightAnchor.constraint(equalToConstant: 64)
+        ])
+
+        NSLayoutConstraint.activate([
+            presentCustomCoordButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            presentCustomCoordButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            presentCustomCoordButton.topAnchor.constraint(equalTo: presentDetailButton.bottomAnchor, constant: 10),
+            presentCustomCoordButton.heightAnchor.constraint(equalToConstant: 64)
         ])
     }
 
     @objc
-    func push() {
+    func pushDetail() {
         print("HOMEVC: Pushing")
         onPushAction?()
     }
 
     @objc
-    func presentSomething() {
+    func presentDetail() {
         print("HOMEVC: Presenting")
         onPresentAction?()
+    }
+
+    @objc
+    func presentCustomCoord() {
+        print("HOMEVC: Presenting Custom Coord")
+        onPresentCoordAction?()
     }
 }

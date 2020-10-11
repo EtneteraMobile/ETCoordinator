@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		52737A512533997800E7CCA2 /* LifetimeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52737A502533996F00E7CCA2 /* LifetimeTracker.framework */; };
+		5286262525339FA200F8ABA3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5286262425339FA200F8ABA3 /* Utils.swift */; };
+		528626272533A36600F8ABA3 /* CustomCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528626262533A36600F8ABA3 /* CustomCoordinator.swift */; };
 		52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */; };
 		52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8F2400238400A24F8A /* DetailViewController.swift */; };
 		52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE7778240015C100CC5FDF /* AppDelegate.swift */; };
@@ -62,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		52737A502533996F00E7CCA2 /* LifetimeTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LifetimeTracker.framework; path = Carthage/Build/iOS/LifetimeTracker.framework; sourceTree = "<group>"; };
+		5286262425339FA200F8ABA3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		528626262533A36600F8ABA3 /* CustomCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCoordinator.swift; sourceTree = "<group>"; };
 		52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		52AD1F8F2400238400A24F8A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		52CE7776240015C100CC5FDF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,7 @@
 				52CE77942400165000CC5FDF /* Coordinators */,
 				52CE77902400160D00CC5FDF /* ViewControllers */,
 				52CE7778240015C100CC5FDF /* AppDelegate.swift */,
+				5286262425339FA200F8ABA3 /* Utils.swift */,
 				52CE777E240015C200CC5FDF /* Assets.xcassets */,
 				52CE7783240015C200CC5FDF /* LaunchScreen.storyboard */,
 				52CE7786240015C200CC5FDF /* Info.plist */,
@@ -158,6 +163,7 @@
 			children = (
 				52CE77952400165F00CC5FDF /* HomeCoordinator.swift */,
 				52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */,
+				528626262533A36600F8ABA3 /* CustomCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -394,10 +400,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */,
+				528626272533A36600F8ABA3 /* CustomCoordinator.swift in Sources */,
 				52CE77962400165F00CC5FDF /* HomeCoordinator.swift in Sources */,
 				52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */,
 				52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */,
 				52CE77932400163100CC5FDF /* HomeViewController.swift in Sources */,
+				5286262525339FA200F8ABA3 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
