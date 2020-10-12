@@ -10,6 +10,7 @@
 		52737A512533997800E7CCA2 /* LifetimeTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52737A502533996F00E7CCA2 /* LifetimeTracker.framework */; };
 		5286262525339FA200F8ABA3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5286262425339FA200F8ABA3 /* Utils.swift */; };
 		528626272533A36600F8ABA3 /* CustomCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528626262533A36600F8ABA3 /* CustomCoordinator.swift */; };
+		5286262C253465C100F8ABA3 /* Coordinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5286262A253465BD00F8ABA3 /* Coordinable.swift */; };
 		52AD1F8E2400215200A24F8A /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */; };
 		52AD1F902400238400A24F8A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AD1F8F2400238400A24F8A /* DetailViewController.swift */; };
 		52CE7779240015C100CC5FDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CE7778240015C100CC5FDF /* AppDelegate.swift */; };
@@ -66,6 +67,7 @@
 		52737A502533996F00E7CCA2 /* LifetimeTracker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LifetimeTracker.framework; path = Carthage/Build/iOS/LifetimeTracker.framework; sourceTree = "<group>"; };
 		5286262425339FA200F8ABA3 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		528626262533A36600F8ABA3 /* CustomCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCoordinator.swift; sourceTree = "<group>"; };
+		5286262A253465BD00F8ABA3 /* Coordinable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinable.swift; sourceTree = "<group>"; };
 		52AD1F8D2400215200A24F8A /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
 		52AD1F8F2400238400A24F8A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		52CE7776240015C100CC5FDF /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 				7119D2C722952F5600ECA92C /* Router.swift */,
 				7119D2BD22952F5500ECA92C /* Starter.swift */,
 				71A3724C22F85BD8000AD70F /* StoppableCoordinator.swift */,
+				5286262A253465BD00F8ABA3 /* Coordinable.swift */,
 			);
 			path = ETCoordinator;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				7119D2D222952F5600ECA92C /* Router.swift in Sources */,
 				7119D2D8229531E100ECA92C /* MulticastDelegate.swift in Sources */,
 				7119D2D9229531E100ECA92C /* NavControllerMulticastDelegate.swift in Sources */,
+				5286262C253465C100F8ABA3 /* Coordinable.swift in Sources */,
 				7119D2DB229531EF00ECA92C /* Weak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

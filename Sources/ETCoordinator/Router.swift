@@ -23,6 +23,12 @@ open class Router: NSObject, Initializable {
 
     open func stop(animated: Bool, completion: (() -> Void)?) {
         // Dismisses all VC that was presented over `firstController`
-        starter.firstController?.presentingViewController?.dismiss(animated: animated, completion: completion)
+        if let presentingViewController = starter.firstController?.presentingViewController {
+            presentingViewController.dismiss(animated: animated, completion: completion)
+        } else {
+            // In rare cases when the Coordinator wasn't started as a presentedViewController. We need to call completion either way.
+            Logger.info("No presenting ViewController found to be stopped. Calling completion.")
+            completion?()
+        }
     }
 }

@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, IdentifiableCoordinator {
+open class BaseCoordinator<RouterType: Router>: Coordinable {
     // MARK: - Properties
     // MARK: public
 
     public let identity: String = UUID().uuidString
     public var isFinished: Bool = false
-    public var children: [StoppableCoordinator & IdentifiableCoordinator] = []
+    public var children: [Coordinable] = []
     public let router = RouterType()
 
     // MARK: private
@@ -114,7 +114,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
         }
     }
 
-    open func addChild(_ coord: StoppableCoordinator & IdentifiableCoordinator) {
+    open func addChild(_ coord: Coordinable) {
         dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
 
         guard contains(array: children, element: coord) == false else {
@@ -133,7 +133,7 @@ open class BaseCoordinator<RouterType: Router>: StoppableCoordinator, Identifiab
         Logger.log("Children added to:\n\(self.description)")
     }
 
-    private func removeChild(_ coord: StoppableCoordinator & IdentifiableCoordinator) {
+    private func removeChild(_ coord: Coordinable) {
         let childIdentification = coord.identification
         Logger.log("removeChild \(childIdentification)")
         remove(element: coord, from: &children)
@@ -234,11 +234,11 @@ extension BaseCoordinator: CustomStringConvertible {
 
 // MARK: - Helpers
 
-private func contains(array: [StoppableCoordinator & IdentifiableCoordinator], element coord: IdentifiableCoordinator) -> Bool {
+private func contains(array: [Coordinable], element coord: IdentifiableCoordinator) -> Bool {
     return array.contains { $0.identity == coord.identity }
 }
 
-private func remove(element coord: IdentifiableCoordinator, from: inout [StoppableCoordinator & IdentifiableCoordinator]) {
+private func remove(element coord: IdentifiableCoordinator, from: inout [Coordinable]) {
     if let idx = from.firstIndex(where: { $0.identity == coord.identity }) {
         from.remove(at: idx)
     }
