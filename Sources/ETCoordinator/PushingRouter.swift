@@ -24,7 +24,9 @@ open class PushingRouter: Router {
             if let viewController = starter.topViewControllerOnStart {
                 starter.navController?.popToViewController(viewController, animated: animated)
             } else {
-                assertionFailure("Router wasn't started or navControlled didn't contain topViewController on start.")
+                Logger.error("Stopping potentionaly misused `PushingCoordinator` without actual push of its `VC`. " +
+                    "Please, avoid use of `PushingCoordinator` in scenarios where there's nothing to push.")
+                starter.stop()
             }
         }
     }

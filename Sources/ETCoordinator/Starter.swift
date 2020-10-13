@@ -72,6 +72,14 @@ open class Starter: NSObject {
         })
         fromController.pushViewController(vc, animated: animated)
     }
+
+    internal func stop() {
+        guard isStarted && !isDismissing else {
+            return
+        }
+
+        didStopVC()
+    }
 }
 
 // MARK: - Navigation Controller Delegate + Injection
@@ -129,12 +137,15 @@ extension Starter: UINavigationControllerDelegate {
         }
     }
 
-    private func didStopWithGestureVC() {
+    private func didStopVC() {
         didStopCompletion?()
-        didFinishWithGesture?()
-
-        // Releases escaped closures
         didStopCompletion = nil
+    }
+
+    private func didStopWithGestureVC() {
+        didStopVC()
+
+        didFinishWithGesture?()
         didFinishWithGesture = nil
     }
 }
